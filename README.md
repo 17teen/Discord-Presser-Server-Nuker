@@ -3,7 +3,7 @@ Nuke Bot in Js
 
 This bot allows you to destroy servers in an instant
 - fast mass delete channels
-![alt-text](https://gyazo.com/374de06b5ef39218bff76beb56def3e8)
+[mass delete](https://gyazo.com/374de06b5ef39218bff76beb56def3e8)
 - fast mass create channels
 - fast mass ping
 
