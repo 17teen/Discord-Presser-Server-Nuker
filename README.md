@@ -27,8 +27,7 @@ This bot allows you to destroy servers in an instant
 
 
 
-
-How to set up:
+# How to set up:
 
 1. Download Node.js
 2. Download VSC(Visual Studio Code)
@@ -37,4 +36,5 @@ How to set up:
 
 Discord: 7teen#0007
 
-NOTICE: I am not responsible for the malicious intent you may have. What you can see here has been made for educational purposes and proof of concepts.
+# WARNING!
+I am not responsible for the malicious intent you may have. What you can see here has been made for educational purposes and proof of concepts.
