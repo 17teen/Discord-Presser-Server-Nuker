@@ -1,4 +1,4 @@
-# 7teen-Nuke-Bot-AMY
+# 7teen-Nuke-Bot-(amy)
 Nuke Bot in Js
 
 This bot allows you to destroy servers in an instant
