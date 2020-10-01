@@ -36,3 +36,5 @@ How to set up:
 4. Your Node modules should be installed and package.json and package-lock.json
 
 Discord: 7teen#0007
+
+NOTICE: I am not responsible for the malicious intent you may have. What you can see here has been made for educational purposes and proof of concepts.
