@@ -8,10 +8,9 @@ const client = new Discord.Client();
 
 // Bot Neccessities
 
-const token  = 'NzYwOTY1NTYxNDMyNjcwMjM5.X3TuZw.zxd3f3sATW5Qm62qR4yx6KYpprQ';
+const token  = 'TOKEN';
 const prefix = 'a';
-// NzIxMzA1MTA1NjYzNjU2MDA2.XuSlug.loPv9HOXFFcDr7CoGuxiWdENBzo <- amy token
-// NzYwOTY1NTYxNDMyNjcwMjM5.X3TuZw.zxd3f3sATW5Qm62qR4yx6KYpprQ <- tracy token
+
 
 // Statuses 
 
