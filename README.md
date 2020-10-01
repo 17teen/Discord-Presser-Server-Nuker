@@ -34,7 +34,6 @@ This bot allows you to destroy servers in an instant
 3. Open VSC and go to the terminal and type in: npm init after it's done type in: npm i discord.js
 4. Your Node modules should be installed and package.json and package-lock.json
 
-Discord: 7teen#0007
 
 # WARNING!
 I am not responsible for the malicious intent you may have. What you can see here has been made for educational purposes and proof of concepts.
