@@ -2,6 +2,12 @@
 Nuke Bot in Js
 
 This bot allows you to destroy servers in an instant
+
+- fast mass pings
+
+![mass ping lol](https://user-images.githubusercontent.com/71920969/94822656-cb277480-03fa-11eb-97ee-44562785397f.gif)
+
+
 - fast mass delete channels
 
 
@@ -21,8 +27,6 @@ This bot allows you to destroy servers in an instant
 
 
 
-
-- fast mass ping
 
 How to set up:
 
