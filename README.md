@@ -13,6 +13,15 @@ This bot allows you to destroy servers in an instant
 
 
 - fast mass create channels
+
+
+
+
+![mass channels lol](https://user-images.githubusercontent.com/71920969/94822362-7683f980-03fa-11eb-9759-906d649b6021.gif)
+
+
+
+
 - fast mass ping
 
 How to set up:
