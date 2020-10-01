@@ -10,3 +10,7 @@ How to set up:
 
 1. Download Node.js
 2. Download VSC(Visual Studio Code)
+3. Open VSC and go to the terminal and type in: npm init after it's done type in: npm i discord.js
+4. Your Node modules should be installed and package.json and package-lock.json
+
+Discord: 7teen#0007
