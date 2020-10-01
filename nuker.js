@@ -22,7 +22,7 @@ client.on("ready", async() => {
       " 7teen ",
       " ahelp ",
       `${client.guilds.cache.size} servers!`, //can add another
-      " zhelp ",
+      " ahelp ",
       " 7teen <3 ",
       ` ${client.users.cache.size} users `,
       " ahelp",
