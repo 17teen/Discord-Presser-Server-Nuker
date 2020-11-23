@@ -63,11 +63,8 @@
 
 *This is a [Vissage production](https://github.com/Vissage)*
 
-*Simple, slightly more efficient Rich Presence tool to look cool in front of your friends*
-
 *Made by 7teen*
 
-*Party Mode Available*
 
 ## Contact Me
 
