@@ -53,6 +53,12 @@
 
 1. Run the 'run' file.
 
+# Commands:
+
+| Help | Nuke | About |
+| ------------- | ------------- | ------------- |
+| ![help](https://cdn.discordapp.com/attachments/780511167628967957/780520314190036992/unknown.png) | ![nuke](https://cdn.discordapp.com/attachments/780511167628967957/780520387241836594/unknown.png) | ![about](https://cdn.discordapp.com/attachments/780511167628967957/780520462794227712/unknown.png) |
+
 # About
 
 *This is a [Vissage production](https://github.com/Vissage)*
