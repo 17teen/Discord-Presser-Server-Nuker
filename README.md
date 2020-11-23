@@ -46,8 +46,8 @@
 
 
 # How to get Bot Token and Invite
-- Token: Settings> Bot
-- Invite: Settings> OAuth2> Scopes | select 'bot' option > Bot Permissions | select 'Administrator' option.
+- Token:  Bot> Settings> Bot
+- Invite: Bot> Settings> OAuth2> Scopes | select 'bot' option > Bot Permissions | select 'Administrator' option.
 
 # Start
 
