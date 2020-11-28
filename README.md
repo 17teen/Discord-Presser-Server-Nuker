@@ -2,7 +2,7 @@
 
 | Nuker | 
 | ------------- | 
-| ![Amy](https://media.discordapp.net/attachments/780511167628967957/780513641958080532/unknown.png) |
+| ![Amy](https://media.discordapp.net/attachments/782211616350404611/782212026302464020/68747470733a2f2f6d656469612e646973636f72646170702e6e65742f6174746163686d656e74732f373830353131313637.png) |
 
 - ***Nuke Bot in Js | Allows you to destroy servers in an instant***
 
