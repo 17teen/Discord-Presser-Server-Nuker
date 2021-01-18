@@ -1,5 +1,5 @@
 @echo off
-title AMY NUKER By 7teen
+title Presser Nuker by 7teen
 :top
 cls
 node .
