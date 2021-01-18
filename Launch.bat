@@ -8,8 +8,5 @@ pause
     call npm install discord.js
     call npm install chalk
 pause
-cls
-node done.js
-pause
 exit
 goto :top
