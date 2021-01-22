@@ -65,6 +65,8 @@
 
 This was to show proof of concepts. I am not responsible for what you do with this tool.
 
+Also I'd recommend only mass pinging till the server reaches to 3k pings. Any more than that will result in the hoster of the tool discord to lag or be rate limited for 30 mins - 2hrs ;)
+
 ## Contact Me
 
 ﹒[Discord](https://discord.com/users/709827684888215582)
