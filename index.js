@@ -1,5 +1,5 @@
 // https://github.com/17teen
-// Discord: thug angel#3868
+// Discord: 7teen#3868
 
 const Discord = require('discord.js');
 const client = new Discord.Client({ ws: { intents: new Discord.Intents(Discord.Intents.ALL) } });
@@ -26,7 +26,7 @@ const presser = String.raw`
                                                             
                                                                       
 
-                                        Author: thug angel#3686
+                                        Author: 7teen#3868
 
 `;
 
