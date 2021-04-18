@@ -4,6 +4,8 @@
 | ------------- | 
 | ![Presser](https://media.discordapp.net/attachments/782211616350404611/800697767659962368/unknown.png) |
 
+![](https://img.shields.io/github/watchers/17teen/Discord-Presser-Server-Nuker?style=social) ![](https://img.shields.io/github/stars/17teen/Discord-Presser-Server-Nuker?style=social) ![](https://img.shields.io/github/forks/17teen/Discord-Presser-Server-Nuker?style=social)
+
 ## Features:
 1. `Mass Create Channels`
 2. `Mass Create Channels & Ping`
