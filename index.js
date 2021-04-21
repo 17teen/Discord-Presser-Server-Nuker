@@ -56,7 +56,8 @@ client.on("message", async message => {
             .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
             .setTitle('Nuker: Presser')
             .setDescription(`*For whatever reason you've summoned me, make sure to do it with no regrets.*\n\n **Nuking:**\n
-            **Mass Channel:** \`${prefix}cc\` [text]
+            **Mass Channel:** \`${prefix}
+\` [text]
             **Mass Channel & Ping Stresser:** \`${prefix}mp\` [text]
             **Mass Roles:** \`${prefix}mr\` [text]
             **Delete All Channels:** \`${prefix}chd\`
@@ -108,11 +109,11 @@ client.on("message", async message => {
         // Mass Channels      
 
         if (message.content.startsWith(prefix + 'cc')) {
+                let args = message.content.split(" ").slice(1);
+                var argresult = args.join(' ');
             if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
                 return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
             } else {
-                let args = message.content.split(" ").slice(1);
-                var argresult = args.join(' ');
                 if (!argresult) {
                     message.channel.send("*Add an input after the cmd*")
                 } else {
@@ -356,6 +357,8 @@ client.on("message", async message => {
         // Mass Channels      
 
         if (message.content.startsWith(prefix + 'cc')) {
+             let args = message.content.split(" ").slice(1);
+             var argresult = args.join(' ');
             if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
                 return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
             } else {
@@ -366,8 +369,6 @@ client.on("message", async message => {
                     if (!argresult) {
                         message.channel.send("*Add an input after the cmd*")
                     } else {
-                        let args = message.content.split(" ").slice(1);
-                        var argresult = args.join(' ');
                         for (var i = 0; i < 250; i++) {
                             message.guild.channels.create(argresult)
                             console.log(yellowBright(`CHANNEL MASSED!`))
