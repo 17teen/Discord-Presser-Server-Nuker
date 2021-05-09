@@ -65,8 +65,9 @@
 
 # Disclaimer
 
-This was to show proof of concepts. I am not responsible for what you do with this tool.
+This is tool was made for educational purposes and proof of concepts. I'm not accountable for any unlawful, unprecedented action and any violation of ToS administered by a third party.
 
+## Tip
 Also I'd recommend only mass pinging till the server reaches to 3k pings. Any more than that will result in the hoster of the tool discord to lag or be rate limited for 30 mins - 2hrs ;)
 
 ## Contact Me
