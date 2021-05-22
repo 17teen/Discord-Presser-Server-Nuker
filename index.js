@@ -48,6 +48,7 @@ client.on("ready", () => {
 client.on("message", async message => {
 
     if (message.author.bot) return;
+    if (message.channel.type === 'dm') return;
 
     if (message.mentions.everyone === true) {
         return;
