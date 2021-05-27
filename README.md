@@ -63,9 +63,6 @@
 
 1. Run the `run.bat` file.
 
-# Does This Work On Repl.it?
-Yes. [Click Here](https://replit.com/@17teen/Discord-Presser-Server-Nuker?v=1)
-
 # Disclaimer
 
 This is tool was made for educational purposes and proof of concepts. I'm not accountable for any unlawful, unprecedented action and any violation of ToS administered by a third party.
