@@ -1,15 +1,10 @@
 // https://github.com/17teen
 // Discord: 7teen#3868
 
-const Discord = require('discord.js');
-const client = new Discord.Client({ ws: { intents: new Discord.Intents(Discord.Intents.ALL) } });
-const { red, green, blue, yellow, cyan, greenBright, redBright, grey, yellowBright, cyanBright, black, blueBright } = require('chalk');
-const settings = require('./settings.json');
-const token = settings.token;
-const prefix = settings.prefix;
-const founder = settings.founder;
-const disableEveryone = settings.DisableEveryone;
-const myID = settings.ID;
+const { Client, Intents, MessageEmbed } = require('discord.js');
+const client = new Client({ ws: { intents: new Intents(Intents.ALL) } });
+const { red, green, yellow, greenBright, redBright, yellowBright, blueBright } = require('chalk');
+const { token, prefix, founder, DisableEveryone, ID } = require('./settings.json');
 
 const presser = String.raw`
 
@@ -37,7 +32,7 @@ client.on("ready", () => {
     console.log(red('           ════════════════════════════════════════════════════════════════════════════════'));
     console.log(greenBright(`                                      Logged in as: ${client.user.username}#${client.user.discriminator}`));
     console.log(greenBright(`                                      Prefix: ${prefix}`));
-    console.log(greenBright(`                                      DisableEveryone: ${disableEveryone}`));
+    console.log(greenBright(`                                      DisableEveryone: ${DisableEveryone}`));
     console.log(greenBright(`                                      Permission Required: ADMINISTRATOR`));
     console.log(red('           ════════════════════════════════════════════════════════════════════════════════'));
     console.log("");
@@ -53,7 +48,7 @@ client.on("message", async message => {
     if (message.mentions.everyone === true) {
         return;
     } else if (message.mentions.has(client.user.id)) {
-        const helpEmbed = new Discord.MessageEmbed()
+        const helpEmbed = new MessageEmbed()
             .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
             .setTitle('Nuker: Presser')
             .setDescription(`*For whatever reason you've summoned me, make sure to do it with no regrets.*\n\n **Nuking:**\n
@@ -82,10 +77,10 @@ client.on("message", async message => {
 
     // Help
 
-    if (disableEveryone === false) {
+    if (!DisableEveryone) {
 
         if (message.content.startsWith(prefix + 'help')) {
-            const helpEmbed = new Discord.MessageEmbed()
+            const helpEmbed = new MessageEmbed()
                 .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
                 .setTitle('Nuker: Presser')
                 .setDescription(`*War does not termine who is right, only who is left.*\n\n **Nuking:**\n
@@ -349,14 +344,14 @@ client.on("message", async message => {
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    } else if (disableEveryone === true) {
+    } else {
 
         if (message.content.startsWith(prefix + 'help')) {
-            if (message.author.id != myID) {
+            if (message.author.id != iD) {
                 return message.reply('You are not authorised to use any of these tools commands.')
             }
             else {
-                const helpEmbed = new Discord.MessageEmbed()
+                const helpEmbed = new MessageEmbed()
                     .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
                     .setTitle('Nuker: Presser')
                     .setDescription(`*For whatever reason you've summoned me, make sure to do it with no regrets.*\n\n **Nuking:**\n
@@ -386,7 +381,7 @@ client.on("message", async message => {
             if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
                 return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
             } else {
-                if (message.author.id != myID) {
+                if (message.author.id != ID) {
                     return message.reply('You are not authorised to use any of these tools commands.')
                 }
                 else {
@@ -408,7 +403,7 @@ client.on("message", async message => {
             if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
                 return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
             } else {
-                if (message.author.id != myID) {
+                if (message.author.id != ID) {
                     return message.reply('You are not authorised to use any of these tools commands.')
                 }
                 else {
@@ -459,7 +454,7 @@ client.on("message", async message => {
             if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
                 return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
             } else {
-                if (message.author.id != myID) {
+                if (message.author.id != ID) {
                     return message.reply('You are not authorised to use any of these tools commands.')
                 }
                 else {
@@ -492,7 +487,7 @@ client.on("message", async message => {
             if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
                 return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
             } else {
-                if (message.author.id != myID) {
+                if (message.author.id != ID) {
                     return message.reply('You are not authorised to use any of these tools commands.')
                 }
                 else {
@@ -512,7 +507,7 @@ client.on("message", async message => {
             if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
                 return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
             } else {
-                if (message.author.id != myID) {
+                if (message.author.id != ID) {
                     return message.reply('You are not authorised to use any of these tools commands.')
                 }
                 else {
@@ -529,7 +524,7 @@ client.on("message", async message => {
             if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
                 return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
             } else {
-                if (message.author.id != myID) {
+                if (message.author.id != ID) {
                     return message.reply('You are not authorised to use any of these tools commands.')
                 }
                 else {
@@ -546,7 +541,7 @@ client.on("message", async message => {
             if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
                 return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
             } else {
-                if (message.author.id != myID) {
+                if (message.author.id != ID) {
                     return message.reply('You are not authorised to use any of these tools commands.')
                 }
                 else {
@@ -569,7 +564,7 @@ client.on("message", async message => {
             if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
                 return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
             } else {
-                if (message.author.id != myID) {
+                if (message.author.id != ID) {
                     return message.reply('You are not authorised to use any of these tools commands.')
                 }
                 else {
@@ -586,7 +581,7 @@ client.on("message", async message => {
         if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
             return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
         } else {
-            if (message.author.id != myID) {
+            if (message.author.id != ID) {
                 return message.reply('You are not authorised to use any of these tools commands.')
             }
             else {
