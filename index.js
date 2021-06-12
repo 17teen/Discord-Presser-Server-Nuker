@@ -363,11 +363,11 @@ client.on("message", async message => {
                     return message.reply('You are not authorised to use any of these tools commands.')
                 }
                 else {
+                    let args = message.content.split(" ").slice(1);
+                    var argresult = args.join(' ');
                     if (!argresult) {
                         message.channel.send("*Add an input after the cmd*")
                     } else {
-                        let args = message.content.split(" ").slice(1);
-                        var argresult = args.join(' ');
                         for (var i = 0; i < 250; i++) {
                             message.guild.channels.create(argresult)
                             console.log(yellowBright(`CHANNEL MASSED!`))
