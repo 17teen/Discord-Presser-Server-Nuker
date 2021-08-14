@@ -45,6 +45,16 @@
 
 ![intents](https://media.discordapp.net/attachments/782211920416735252/789810856460419092/unknown.png?width=1409&height=400)
 
+
+### Linux Set-up:
+
+1. Extract the code in a folder, **Right Click** anywhere, click on **Open in Terminal**.
+2. After opening, spam **Enter**, until you see **Is this OK? (yes)** press Enter again.
+3. Next, you'll have to install discord.js, in that same terminal type `npm install discord.js@12.5.3 chalk`, this will install discord.js and chalk.
+4. Start the bot by typing `node .` or `node index.js`
+
+![linuxDistro](https://cdn.discordapp.com/attachments/864811547397062656/876212001859309629/presser.gif)
+
 # Set-up: Script
 
 1. Run the `Launch` file and wait for all the packages to be installed.
