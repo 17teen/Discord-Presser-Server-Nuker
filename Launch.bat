@@ -1,12 +1,15 @@
 @echo off
-title Launching Modules v.1.1.0
-:top
-cls
-node launch.js
-pause
-    call npm init
-    call npm install discord.js@12.5.3
-    call npm install chalk
-pause
-exit
-goto :top
+title Presser Beta
+
+if exist node_modules\ (
+  echo You've already installed this
+  echo Navigate to "config" folder for bot settings and "src" to start the script
+  pause
+  exit
+) else (
+  call npm i >> NUL
+  echo Succesfully installed!
+  echo Please re-run this file.
+  pause
+  exit
+)

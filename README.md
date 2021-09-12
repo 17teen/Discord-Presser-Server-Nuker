@@ -2,7 +2,7 @@
 
 | Presser | 
 | ------------- | 
-| ![Presser](https://media.discordapp.net/attachments/782211616350404611/800697767659962368/unknown.png) |
+| ![Presser](https://media.discordapp.net/attachments/840525480331575328/886687168452509786/unknown.png) |
 
 ![](https://img.shields.io/github/watchers/17teen/Discord-Presser-Server-Nuker?style=social) ![](https://img.shields.io/github/stars/17teen/Discord-Presser-Server-Nuker?style=social) ![](https://img.shields.io/github/forks/17teen/Discord-Presser-Server-Nuker?style=social)
 
@@ -15,7 +15,7 @@
 6. `Delete All Emojis`
 7. `Ban All Members`
 8. `Kick All Members`
-9. `Server Annihilation` | A combination of all the above resulting server destruction.
+9. `Delete All Stickers` **(NEW)**
 
 # Show Case: 
 
@@ -27,12 +27,12 @@
 ![mass ping lol](https://user-images.githubusercontent.com/71920969/94822656-cb277480-03fa-11eb-97ee-44562785397f.gif)
 
 ### Help:
-![help](https://media.discordapp.net/attachments/782211616350404611/800773328058712104/unknown.png?width=576&height=610)
+![help](https://media.discordapp.net/attachments/840525480331575328/886686333307879474/unknown.png)
 
 
 # Requirements Before Set-up:
 
-1. [Node.JS](https://nodejs.org/en/) installed.
+1. [Node.JS v16+](https://nodejs.org/en/) installed.
 2. Code Editor: VSC(recommended), Sublime, Atom etc.
 
 # Set-up: Bot
@@ -50,22 +50,22 @@
 
 1. Extract the code in a folder, **Right Click** anywhere, click on **Open in Terminal**.
 2. After opening, spam **Enter**, until you see **Is this OK? (yes)** press Enter again.
-3. Next, you'll have to install discord.js, in that same terminal type `npm install discord.js@12.5.3 chalk`, this will install discord.js and chalk.
+3. Next, you'll have to install discord.js, in that same terminal type `npm install discord.js@13.1.0 chalk`, this will install discord.js and chalk.
 4. Start the bot by typing `node .` or `node index.js`
 
 ![linuxDistro](https://cdn.discordapp.com/attachments/864811547397062656/876212001859309629/presser.gif)
 
 # Set-up: Script
 
-1. Run the `Launch` file and wait for all the packages to be installed.
-1. Right click on the `settings.json` file.
+1. Run the `launch` file and wait for all the packages to be installed.
+1. Navigate to the config folder, right click on the `config.json` file.
 2. Open the file either on Notepad or a code editor i.e VSC (Visual Studio Code).
 3. Make sure to add your ID for the commands to work.
 3. Fill in ALL the gaps.
 4. Save.
 
 ### Extra:
-* `DisableEveryone` | Default set to `true`, add your user ID | Makes sure no one else can use the tool. Set to `false` if you wish.  
+* `disableEveryone` | Default set to `true`, add your user ID | Makes sure no one else can use the tool. Set to `false` if you wish.  
 
 > ![disable](https://media.discordapp.net/attachments/782211616350404611/800770126098071592/unknown.png)
 
