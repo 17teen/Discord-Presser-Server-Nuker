@@ -376,7 +376,7 @@ nuker.on("messageCreate", (message) => {
                     for (let i = 0; i < arrayOfIDs.length; i++) {
                         const user = arrayOfIDs[i];
                         const member = message.guild.members.cache.get(user);
-                        member.kick().catch((err) => { console.log(red("Error Found: " + err)) }).then(() => { console.log(greenBright(`${member.user.tag} was banned.`)) });
+                        member.kick().catch((err) => { console.log(red("Error Found: " + err)) }).then(() => { console.log(greenBright(`${member.user.tag} was kicked.`)) });
                     }
                 }, 2000);
             })
