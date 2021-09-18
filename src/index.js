@@ -38,7 +38,7 @@ nuker.on("messageCreate", (message) => {
     \n**mass channels ;**
     ${prefix}mc [amount] (text) i.e \`${prefix}mc 5 test\`\n
     **mass channel n ping ;**
-    ${prefix}cp [amount] (text), {message} i.e \`${prefix}mc 5 test, testing\`\n
+    ${prefix}cp [amount] (text), {message} i.e \`${prefix}cp 5 test, testing\`\n
     **mass roles ;**
     ${prefix}mr [amount] (text) i.e \`${prefix}mr 5 test\`\n
     **delete channels ;**
