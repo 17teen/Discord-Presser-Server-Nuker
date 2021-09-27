@@ -57,12 +57,12 @@
 
 # Set-up: Script
 
-1. Run the `launch` file and wait for all the packages to be installed.
 1. Navigate to the config folder, right click on the `config.json` file.
 2. Open the file either on Notepad or a code editor i.e VSC (Visual Studio Code).
 3. Make sure to add your ID for the commands to work.
 3. Fill in ALL the gaps.
 4. Save.
+5. Run the `Presser.bat` file and wait for all the packages to be installed, then for the tool to run.
 
 ### Extra:
 * `disableEveryone` | Default set to `true`, add your user ID | Makes sure no one else can use the tool. Set to `false` if you wish.  
@@ -71,7 +71,7 @@
 
 ## Start-up:
 
-1. Navigate to the "src" folder, run the `presser.bat` file.
+1. Run the `Presser.bat` file.
 
 # Disclaimer
 

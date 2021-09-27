@@ -146,18 +146,16 @@ nuker.on("messageCreate", (message) => {
             });
         }
     } else {
-        if (message.author.id != userID) {
+        if (message.author.id !== userID) {
             return message.reply("You are not authorised to use any of this tools' commands.");
         } else {
             // Help
             if (message.content.startsWith(prefix + "help")) {
-                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
                 message.channel.send({embeds: [help]})
             }
 
             // Mass Channels
             if (message.content.startsWith(prefix + "mc")) {
-                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
                 MassChannels(args1, args2).catch((err) => {
                     message.reply(err);
                 });
@@ -165,7 +163,6 @@ nuker.on("messageCreate", (message) => {
 
             // Delete all channels
             if (message.content.startsWith(prefix + "dc")) {
-                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
                 DelAllChannels().catch((err) => {
                     message.reply(err);
                 });
@@ -173,7 +170,6 @@ nuker.on("messageCreate", (message) => {
 
             // Mass Channels and Ping
             if (message.content.startsWith(prefix + "cp")) {
-                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
                 MassChnPing(args1, args2, args3).catch((err) => {
                     message.reply(err);
                 });
@@ -181,7 +177,6 @@ nuker.on("messageCreate", (message) => {
 
             // Mass Roles
             if (message.content.startsWith(prefix + "mr")) {
-                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
                 MassRoles(args1, args2).catch((err) => {
                     message.reply(err);
                 });
@@ -189,7 +184,6 @@ nuker.on("messageCreate", (message) => {
 
             // Delete all Roles
             if (message.content.startsWith(prefix + "dr")) {
-                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
                 DelAllRoles().catch((err) => {
                     message.reply(err);
                 });
@@ -197,7 +191,6 @@ nuker.on("messageCreate", (message) => {
 
             // Delete all Stickers
             if (message.content.startsWith(prefix + "ds")) {
-                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
                 DelAllStickers().catch((err) => {
                     message.reply(err);
                 });
@@ -205,7 +198,6 @@ nuker.on("messageCreate", (message) => {
 
             // Delete all Emotes
             if (message.content.startsWith(prefix + "de")) {
-                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
                 DelAllEmotes().catch((err) => {
                     message.reply(err);
                 });
@@ -213,7 +205,6 @@ nuker.on("messageCreate", (message) => {
 
             // Mass Ban
             if (message.content.startsWith(prefix + "mb")) {
-                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
                 BanAll().catch((err) => {
                     message.reply(err);
                 });
@@ -221,7 +212,6 @@ nuker.on("messageCreate", (message) => {
 
             // Mass Kick
             if (message.content.startsWith(prefix + "mk")) {
-                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
                 KickAll().catch((err) => {
                     message.reply(err);
                 });
@@ -238,10 +228,18 @@ nuker.on("messageCreate", (message) => {
      */
     function MassChannels(amount, channelName) {
         return new Promise((resolve, reject) => {
-            if (!amount) return reject("Unspecified Args: Specify the amount you wish to mass channels");
-            if (isNaN(amount)) return reject("Type Error: Use a number for the amout");
-            if (amount > 500) return reject("Amount Error: Max guild channel size is 500 | Tip: Use a number lower than 500");
-            if (!channelPerms) return reject("Bot Missing Permissions: 'MANAGE_CHANNELS'");
+            if (!amount) {
+                return reject("Unspecified Args: Specify the amount you wish to mass channels");
+            }
+            if (isNaN(amount)) {
+                return reject("Type Error: Use a number for the amout");
+            }
+            if (amount > 500) {
+                return reject("Amount Error: Max guild channel size is 500 | Tip: Use a number lower than 500");
+            }
+            if (!channelPerms) {
+                return reject("Bot Missing Permissions: 'MANAGE_CHANNELS'");
+            }
             for (let i = 0; i < amount; i++) {
                 if (message.guild.channels.cache.size === 500) break;
                 if (!channelName) {

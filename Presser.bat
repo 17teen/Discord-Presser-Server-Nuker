@@ -2,14 +2,13 @@
 title Presser Beta
 
 if exist node_modules\ (
-  echo You've already installed this
-  echo Navigate to "config" folder for bot settings and "src" to start the script
+  echo Please wait...
+  node index.js
   pause
-  exit
 ) else (
   call npm i >> NUL
   echo Succesfully installed!
+  echo Please wait...
+  node index.js
+  pause
 )
-echo Please wait...
-node index.js
-pause
