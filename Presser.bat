@@ -9,7 +9,7 @@ if exist node_modules\ (
 ) else (
   call npm i >> NUL
   echo Succesfully installed!
-  echo Please re-run this file.
-  pause
-  exit
 )
+echo Please wait...
+node index.js
+pause
