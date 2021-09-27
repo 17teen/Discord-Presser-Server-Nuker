@@ -6,7 +6,7 @@ const { Client, Intents, MessageEmbed } = require("discord.js");
 const nuker = new Client({ intents: Object.values(Intents.FLAGS).reduce((a, b) => a + b) });
 const { red, greenBright, cyan, yellow } = require("chalk");
 const { token, prefix, userID, disableEveryone } = require("config.json");
-const Console = require("Console")
+const Console = require("Console");
 
 nuker.on("ready", () => {
     Console.clear();
@@ -27,7 +27,7 @@ nuker.on("ready", () => {
                             Beta
                     Nuker: ${nuker.user.tag}
                     Prefix: ${prefix}
-    `))
+    `));
     nuker.user.setActivity({ 
         name: "Presser Beta", 
         type: "PLAYING" 
@@ -58,7 +58,7 @@ nuker.on("messageCreate", (message) => {
     **mass ban ;**
     ${prefix}mb
     `)
-        .setFooter(`© Presser Beta`)
+        .setFooter("© Presser Beta")
         .setColor(0x36393E)
         .setTimestamp(Date.now());
 
@@ -72,15 +72,15 @@ nuker.on("messageCreate", (message) => {
     // Possible Args
     let args = message.content.split(" ").slice(1);
     var args1 = args[0]; // Used for amount
-    var args2 = args.slice(1).join(' ') // Naming things
-    var args3 = args.slice(2).join(', '); // Other
+    var args2 = args.slice(1).join(" "); // Naming things
+    var args3 = args.slice(2).join(", "); // Other
 
     if (!disableEveryone) {
         // Commands
 
         // Help
         if (message.content.startsWith(prefix + "help")) {
-            message.channel.send({embeds: [help]})
+            message.channel.send({embeds: [help]});
         }
 
         // Mass Channels
@@ -146,84 +146,86 @@ nuker.on("messageCreate", (message) => {
             });
         }
     } else {
-        // Commands
+        if (message.author.id != userID) {
+            return message.reply("You are not authorised to use any of this tools' commands.");
+        } else {
+            // Help
+            if (message.content.startsWith(prefix + "help")) {
+                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
+                message.channel.send({embeds: [help]})
+            }
 
-        // Help
-        if (message.content.startsWith(prefix + "help")) {
-            if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
-            message.channel.send({embeds: [help]})
-        }
+            // Mass Channels
+            if (message.content.startsWith(prefix + "mc")) {
+                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
+                MassChannels(args1, args2).catch((err) => {
+                    message.reply(err);
+                });
+            }
 
-        // Mass Channels
-        if (message.content.startsWith(prefix + "mc")) {
-            if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
-            MassChannels(args1, args2).catch((err) => {
-                message.reply(err);
-            });
-        }
+            // Delete all channels
+            if (message.content.startsWith(prefix + "dc")) {
+                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
+                DelAllChannels().catch((err) => {
+                    message.reply(err);
+                });
+            }
 
-        // Delete all channels
-        if (message.content.startsWith(prefix + "dc")) {
-            if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
-            DelAllChannels().catch((err) => {
-                message.reply(err);
-            });
-        }
+            // Mass Channels and Ping
+            if (message.content.startsWith(prefix + "cp")) {
+                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
+                MassChnPing(args1, args2, args3).catch((err) => {
+                    message.reply(err);
+                });
+            }
 
-        // Mass Channels and Ping
-        if (message.content.startsWith(prefix + "cp")) {
-            if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
-            MassChnPing(args1, args2, args3).catch((err) => {
-                message.reply(err);
-            });
-        }
+            // Mass Roles
+            if (message.content.startsWith(prefix + "mr")) {
+                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
+                MassRoles(args1, args2).catch((err) => {
+                    message.reply(err);
+                });
+            }
 
-        // Mass Roles
-        if (message.content.startsWith(prefix + "mr")) {
-            if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
-            MassRoles(args1, args2).catch((err) => {
-                message.reply(err);
-            });
-        }
+            // Delete all Roles
+            if (message.content.startsWith(prefix + "dr")) {
+                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
+                DelAllRoles().catch((err) => {
+                    message.reply(err);
+                });
+            }
 
-        // Delete all Roles
-        if (message.content.startsWith(prefix + "dr")) {
-            if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
-            DelAllRoles().catch((err) => {
-                message.reply(err);
-            });
-        }
+            // Delete all Stickers
+            if (message.content.startsWith(prefix + "ds")) {
+                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
+                DelAllStickers().catch((err) => {
+                    message.reply(err);
+                });
+            }
 
-        // Delete all Stickers
-        if (message.content.startsWith(prefix + "ds")) {
-            if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
-            DelAllStickers().catch((err) => {
-                message.reply(err);
-            });
-        }
+            // Delete all Emotes
+            if (message.content.startsWith(prefix + "de")) {
+                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
+                DelAllEmotes().catch((err) => {
+                    message.reply(err);
+                });
+            }
 
-        // Delete all Emotes
-        if (message.content.startsWith(prefix + "de")) {
-            if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
-            DelAllEmotes().catch((err) => {
-                message.reply(err);
-            });
-        }
+            // Mass Ban
+            if (message.content.startsWith(prefix + "mb")) {
+                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
+                BanAll().catch((err) => {
+                    message.reply(err);
+                });
+            }
 
-        // Mass Ban
-        if (message.content.startsWith(prefix + "mb")) {
-            if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
-            BanAll().catch((err) => {
-                message.reply(err);
-            });
-        }
-
-        // Mass Kick
-        if (message.content.startsWith(prefix + "mk")) {
-            if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
-            KickAll().catch((err) => {
-                message.reply(err);
-            });
+            // Mass Kick
+            if (message.content.startsWith(prefix + "mk")) {
+                if (message.author.id != userID) return message.reply("You are not authorised to use any of this tools' commands.");
+                KickAll().catch((err) => {
+                    message.reply(err);
+                });
+            }
         }
     }
 
