@@ -39,7 +39,7 @@
 
 1. Go to your [Discord Developers Applications](https://discord.com/developers/applications) and create a new bot | You can use an existing one.
 2. Go to the "Bot" section and scroll down till you see "Privileged Gateway Intents".
-3. Select both **Presence Intent** and **Server Members Intent**
+3. Select both **Presence Intent**, **Server Members Intent** and **Message Content Intents**. 
 
 ### Example
 
