@@ -49,7 +49,7 @@
 ### Linux Set-up:
 
 1. Extract the code in a folder, **Right Click** anywhere, click on **Open in Terminal**.
-2. After opening, spam **Enter**, until you see **Is this OK? (yes)** press Enter again.
+2. After opening write **npm init** then, spam **Enter**, until you see **Is this OK? (yes)** press Enter again.
 3. Next, you'll have to install discord.js, in that same terminal type `npm install discord.js@13.1.0 chalk`, this will install discord.js and chalk.
 4. Start the bot by typing `node .` or `node index.js`
 
